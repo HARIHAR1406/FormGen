@@ -1,0 +1,23 @@
+.live-preview-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.live-preview-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .live-preview-page {
+    width: 100%;
+    min-height: auto;
+  }
+}

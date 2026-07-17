@@ -1,0 +1,229 @@
+.editor-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.editor-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-base);
+  min-height: 100vh;
+}
+
+.editor-layout.sidebar-collapsed {
+  margin-left: var(--sidebar-collapsed);
+}
+
+/* Toolbar */
+.editor-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-secondary);
+  backdrop-filter: blur(12px);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+.toolbar-doc-icon {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.toolbar-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.toolbar-title-input {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 2px 6px;
+  width: 200px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.toolbar-title-input:hover {
+  background: var(--bg-hover);
+}
+
+.toolbar-title-input:focus {
+  border-color: var(--brand-primary);
+  background: var(--bg-tertiary);
+}
+
+.toolbar-type-badge {
+  padding: 0.2rem 0.625rem;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Panel Tabs */
+.toolbar-panels {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg-tertiary);
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-secondary);
+}
+
+.panel-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.panel-tab.active {
+  background: var(--bg-card);
+  color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-tab:hover:not(.active) {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.active-preview {
+  color: var(--brand-primary) !important;
+  background: var(--brand-primary-light) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+/* Editor Body */
+.editor-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.editor-body.preview-only {
+  grid-template-columns: 1fr;
+}
+
+/* Left Panel */
+.editor-panel {
+  border-right: 1px solid var(--border-secondary);
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  height: calc(100vh - 60px);
+}
+
+/* Preview Area */
+.editor-preview-area {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+}
+
+.editor-preview-area.preview-full {
+  width: 100%;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-secondary);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.preview-label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.preview-template-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.preview-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .editor-layout {
+    margin-left: 0 !important;
+  }
+  .editor-body {
+    grid-template-columns: 360px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .editor-panel {
+    height: auto;
+    max-height: 50vh;
+  }
+  .toolbar-title { max-width: 120px; }
+  .toolbar-panels { display: none; }
+}

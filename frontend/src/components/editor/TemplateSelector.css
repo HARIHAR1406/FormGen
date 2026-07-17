@@ -1,0 +1,114 @@
+.template-selector {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ts-header {
+  padding: 1.5rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.ts-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.ts-header p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.ts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.ts-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-card:hover {
+  border-color: var(--border-primary);
+  background: var(--bg-hover);
+  transform: translateX(4px);
+}
+
+.ts-card-active {
+  border-color: var(--brand-primary) !important;
+  background: var(--brand-primary-light) !important;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+.ts-preview {
+  width: 72px;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-emoji {
+  font-size: 1.5rem;
+}
+
+.ts-color-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.ts-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ts-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.ts-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.ts-active-badge {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  padding: 0.2rem 0.5rem;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+}
