@@ -8,7 +8,7 @@ import { FiUsers, FiFileText, FiShield, FiTrash2, FiZap } from 'react-icons/fi';
 import { HiOutlineDocumentText } from 'react-icons/hi';
 import './Admin.css';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Admin = () => {
   const { user } = useAuth();

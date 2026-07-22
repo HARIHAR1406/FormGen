@@ -13,7 +13,7 @@ const InterviewPrepModal = ({ onClose }) => {
   const handleGenerate = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5002/api/ai/interview-prep', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ai/interview-prep`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resumeData: formData, jobRole: jobRole.trim() }),

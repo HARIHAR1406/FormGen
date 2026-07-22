@@ -16,7 +16,7 @@ const AIToolsPanel = () => {
   const handleAnalyze = async () => {
     setLoadingScore(true);
     try {
-      const response = await fetch('http://localhost:5002/api/ai/analyze-resume', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ai/analyze-resume`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
